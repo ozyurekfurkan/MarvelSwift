@@ -19,7 +19,6 @@ class HomeScreenVC: UIViewController {
     let characterCellId = "CharacterCell"
     let segueIdentifier = "toCharacterDetailVC"
     var data = [CharacterModel]()
-    var searchController = UISearchController()
     var selectedIndex: Int?
     
     override func viewDidLoad() {

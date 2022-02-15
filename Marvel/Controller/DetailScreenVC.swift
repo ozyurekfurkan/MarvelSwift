@@ -28,9 +28,7 @@ class DetailScreenVC: UIViewController {
         super.viewDidLoad()
         self.tableView.register(ComicCell.nib(), forCellReuseIdentifier: comicCellId)
         fetchData()
-        DispatchQueue.main.async {
-            self.setupPage()
-        }
+        self.setupPage()
     }
     func fetchData() {
         let indicator = SpringIndicator(frame: CGRect(x: 100, y: 100, width: 60, height: 60))
