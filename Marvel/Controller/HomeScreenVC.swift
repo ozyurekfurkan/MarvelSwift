@@ -52,15 +52,13 @@ class HomeScreenVC: UIViewController {
                     indicator.stop()
                 }
                     }, statusCode: { (statusCode, statusMessage, requestForm) in
-                        print(statusCode)
                         indicator.stop()
                     }, failure: { (moyaError) in
-                        print(moyaError)
                         indicator.stop()
             })
     }
 }
-
+//MARK: - TableViewDelegate - TableViewDataSource
 extension HomeScreenVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 375
@@ -97,7 +95,7 @@ extension HomeScreenVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
-
+//MARK: - UISearchBarDelegate
 extension HomeScreenVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text {

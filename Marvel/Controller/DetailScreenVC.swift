@@ -11,7 +11,6 @@ import ObjectMapper
 import SpringIndicator
 
 class DetailScreenVC: UIViewController {
-
     
     @IBOutlet weak var characterName: UILabel!
     @IBOutlet weak var characterDescription: UILabel!
@@ -42,17 +41,14 @@ class DetailScreenVC: UIViewController {
         MarvelNetwork.makeRequest(target: .comicChar(id: characterId, apiKey: API_KEY, timeStamp: TIME_STAMP, hashKey: HASH_KEY), success: { (JSON) in
                             if let data = Mapper<ComicModel>().mapArray(JSONObject: JSON["data"]["results"].arrayObject) {
                                 self.comicData = data
-                                print(data)
                                 self.tableView.reloadData()
                                 indicator.stop()
 
                             }
                                 
         },statusCode: { (statusCode, statusMessage, requestForm) in
-                print(statusCode)
                 indicator.stop()
         }, failure: { (moyaError) in
-                print(moyaError)
                 indicator.stop()
         })
     }
@@ -71,7 +67,7 @@ class DetailScreenVC: UIViewController {
         }
     }
 }
-
+//MARK: - TableViewDelegate - TableViewDataSource
 extension DetailScreenVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 190

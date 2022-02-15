@@ -47,7 +47,6 @@ struct MarvelNetwork {
                 } catch MoyaError.jsonMapping(let response) {
                     let statusCode = response.statusCode
                     if let response: HTTPURLResponse = response.response{
-                        print("responseStatusNetwork : \(response)")
                         statusCodeWithDetail(statusCode, "", nil)
                         return
                     }
